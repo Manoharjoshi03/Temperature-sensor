@@ -1,0 +1,101 @@
+
+LM35 Temperature Sensor
+
+Introduction
+
+The LM35 is a precision analog temperature sensor from Texas Instruments.
+It provides an output voltage that is linearly proportional to the Celsius temperature.
+Unlike thermistors, the LM35 does not require any external calibration or trimming and 
+maintains an accuracy of ±0.5°C at room temperature.
+
+Features
+
+* Direct temperature output in °C
+* Linear scale factor: 10 mV/°C
+* Operating temperature range: -55°C to +150°C
+* Accuracy: ±0.5°C (at 25°C)
+* Operating voltage: 4V to 30V
+* Low self-heating: < 0.1°C in still air
+* Output impedance: < 0.1Ω
+* Can be used with Arduino, ESP32, STM32, and other ADC-enabled microcontrollers
+
+Working Principle
+
+The LM35 works based on the principle that the base-emitter voltage of a diode-connected
+transistor changes predictably with temperature. Internally, the LM35 uses a series of precisely 
+matched transistors biased at different current levels to produce a voltage that varies linearly 
+with temperature.
+
+Output Voltage Formula
+
+Vout = 10mV × Temperature(°C)
+
+For example:
+
+* At 25°C → Output = 250 mV
+* At 0°C → Output = 0 mV
+* At 100°C → Output = 1000 mV (1V)
+
+You can convert this voltage into temperature using:
+
+Temperature (°C) = Vout (in volts) × 100
+
+Electrical Characteristics
+
+| Parameter               | Typical Value | Unit  |
+| ----------------------- | ------------- | ----- |
+| Supply Voltage          | 4 – 30        | V     |
+| Output Voltage          | 0 – 1.5       | V     |
+| Current Drain           | 60            | µA    |
+| Accuracy (25°C)         | ±0.5          | °C    |
+| Temperature Sensitivity | 10            | mV/°C |
+
+
+Interfacing with Microcontroller
+
+To read the temperature:
+
+1. Connect Vout of LM35 to an ADC pin of the microcontroller.
+2. Perform an analogRead to get ADC value.
+3. Convert ADC value to voltage.
+4. Multiply by 100 to get temperature in Celsius.
+
+Arduino (10-bit ADC, 0–5V):
+
+voltage = analogRead(A0) * (5.0 / 1023.0);
+temperature = voltage * 100;
+
+ESP32 (12-bit ADC, 0–3.3V):
+
+voltage = analogRead(36) * (3.3 / 4095.0);
+temperature = voltage * 100;
+
+Applications
+
+* Weather monitoring systems
+* Battery management systems
+* Home automation
+* Industrial temperature control
+* IoT environment sensing
+* Overheat protection in power supplies
+
+Advantages
+
+* No calibration required
+* Linear output makes calculations easy
+* Compatible with many microcontrollers
+* Low cost and easily available
+* Accurate and reliable
+
+Limitations
+
+* Analog output is sensitive to noise and long wire lengths
+* Cannot be used directly for Fahrenheit (needs conversion)
+* Accuracy may reduce slightly at extreme temperature ranges
+* Must ensure stable Vcc for accurate readings
+
+Celsius to Fahrenheit Conversion
+
+If required:
+
+°F = (°C × 1.8) + 32
