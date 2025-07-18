@@ -40,17 +40,6 @@ You can convert this voltage into temperature using:
 
 Temperature (°C) = Vout (in volts) × 100
 
-Electrical Characteristics
-
-| Parameter               | Typical Value | Unit  |
-| ----------------------- | ------------- | ----- |
-| Supply Voltage          | 4 – 30        | V     |
-| Output Voltage          | 0 – 1.5       | V     |
-| Current Drain           | 60            | µA    |
-| Accuracy (25°C)         | ±0.5          | °C    |
-| Temperature Sensitivity | 10            | mV/°C |
-
-
 Interfacing with Microcontroller
 
 To read the temperature:
