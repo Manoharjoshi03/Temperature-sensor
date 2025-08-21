@@ -22,9 +22,9 @@ Features
 Working Principle
 
 The LM35 works based on the principle that the base-emitter voltage of a diode-connected
-transistor changes predictably with temperature. Internally, the LM35 uses a series of 
-precisely matched transistors biased at different current levels to produce a voltage that 
-varies linearly with temperature.
+transistor changes predictably with temperature. Internally, the LM35 uses a series 
+of precisely matched transistors biased at different current levels to produce a voltage
+that varies linearly with temperature.
 
 Output Voltage Formula
 
